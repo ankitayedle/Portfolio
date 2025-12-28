@@ -1,0 +1,147 @@
+:root {
+  --bg: #111111ad;
+  --calc-bg: #1111113f;
+  --display-bg: #2222224d;
+  --text: #fff;
+  --btn: #3333339d;
+}
+
+body.light {
+  --bg: #eaeaea;
+  --calc-bg: #ffffff;
+  --display-bg: #f1f1f18e;
+  --text: #000;
+  --btn: #ccc9dae1;
+}
+
+body {
+  background: linear-gradient(135deg, #6985b800, #d8ce410c);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  transition: 0.4s;
+}
+
+body.light {
+  background: linear-gradient(135deg, #fdfdfb, #136b9798);
+}
+
+.calculator {
+  background: var(--calc-bg);
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  transition: 0.4s;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.switch {
+  position: relative;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background: #f1efefd3;
+  border-radius: 100px;
+  width: 100%;
+  height: 100%;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  top: 2.5px;
+  left: 3px;
+  transition: 0.3s;
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+/* Displays */
+.mirror-display {
+  text-align: right;
+  font-size: 16px;
+  color: rgba(175, 3, 3, 0.596);
+}
+
+body.light .mirror-display {
+  color: rgba(252, 8, 8, 0.575);
+}
+
+#display {
+  width: 95%;
+  height: 50px;
+  font-size: 26px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: right;
+  background: var(--display-bg);
+  color: var(--text);
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  height: 55px;
+  border: none;
+  border-radius: 100px;
+  font-size: 18px;
+  cursor: pointer;
+  background: var(--btn);
+  color: var(--text);
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.op { background: #ffae00ea; color: #fff; }
+.equal { background: #00c853; color: #fff; }
+.func { background: #605d74b0; color: #fff; }
+.sci { background: #6159633b; color: #fff; }
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  button {
+    height: 48px;
+    font-size: 15px;
+  }
+
+  #display {
+    height: 55px;
+    font-size: 22px;
+  }
+}
